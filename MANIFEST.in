@@ -1,0 +1,11 @@
+include MANIFEST.in
+include *.txt
+include *.rst
+exclude */*.txt # limit previous command to include only *.txt files in root folder
+exclude */*.rst # limit previous command to include only *.rst files in root folder
+
+include docs/Selenium2Library.html
+
+recursive-include src *.py
+graft src/Selenium2Library/resources
+recursive-exclude src *.pyc
