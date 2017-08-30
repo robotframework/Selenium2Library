@@ -10,10 +10,8 @@ CURDIR = dirname(abspath(__file__))
 with open(join(CURDIR, 'src', 'Selenium2Library', '__init__.py')) as f:
     VERSION = re.search("\n__version__ = '(.*)'", f.read()).group(1)
 
-DESCRIPTION = """
-Selenium2Library is a web testing library for Robot Framework
-that utilizes the Selenium tool internally.
-"""[1:-1]
+with open(join(CURDIR, 'README.rst')) as f:
+    DESCRIPTION = f.read()
 
 with open(join(CURDIR, 'requirements.txt')) as f:
     REQUIREMENTS = f.read().splitlines()
@@ -42,4 +40,4 @@ setup(name         = 'robotframework-selenium2library',
       package_dir  = {'' : 'src'},
       packages     = ['Selenium2Library'],
       include_package_data = True,
-      )
+)
