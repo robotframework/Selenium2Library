@@ -23,13 +23,18 @@ __version__ = '3.0.0a2'
 class Selenium2Library(SeleniumLibrary):
 
     def get_keyword_documentation(self, name):
-        if name == '__intro__':
-            doc = SeleniumLibrary.__doc__
-            doc = doc.replace('SeleniumLibrary', 'Selenium2Library')
-            return """\
-| Starting from 3.0.0a1 release Selenium2Library project has moved to SeleniumLibrary project. Currently the Selenium2Library is only a wrapper to the SeleniumLibrary.
-| More details can be found from the Selenium2Library project: https://github.com/robotframework/Selenium2Library and from SeleniumLibrary project: https://github.com/robotframework/SeleniumLibrary
-""" + doc
-        else:
+        if name != '__intro__':
             doc = SeleniumLibrary.get_keyword_documentation(self, name)
             return doc.replace('SeleniumLibrary', 'Selenium2Library')
+        intro = SeleniumLibrary.__doc__
+        intro = intro.replace('SeleniumLibrary', 'Selenium2Library')
+        return """
+---
+*NOTE:* Selenium2Library has been renamed to SeleniumLibrary since version 3.0.
+Nowadays Selenium2Library is just a thin wrapper to SeleniumLibrary that eases
+with transitioning to the new project. See
+[https://github.com/robotframework/SeleniumLibrary|SeleniumLibrary] and
+[https://github.com/robotframework/Selenium2Library|Selenium2Library]
+project pages for more information.
+---
+""" + intro
