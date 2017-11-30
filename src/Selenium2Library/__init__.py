@@ -17,7 +17,7 @@
 from SeleniumLibrary import SeleniumLibrary
 
 
-__version__ = '3.0.0b1'
+__version__ = '3.0.0'
 
 
 class Selenium2Library(SeleniumLibrary):
