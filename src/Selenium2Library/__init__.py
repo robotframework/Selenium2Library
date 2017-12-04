@@ -24,6 +24,8 @@ __version__ = '3.0.0'
 
 class Selenium2Library(SeleniumLibrary):
 
+    ROBOT_LIBRARY_VERSION = __version__
+
     def get_keyword_documentation(self, name):
         if name != '__intro__':
             doc = SeleniumLibrary.get_keyword_documentation(self, name)
