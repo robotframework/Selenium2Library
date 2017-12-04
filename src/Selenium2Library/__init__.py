@@ -14,6 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import inspect
+
 from SeleniumLibrary import SeleniumLibrary
 
 
@@ -26,7 +28,7 @@ class Selenium2Library(SeleniumLibrary):
         if name != '__intro__':
             doc = SeleniumLibrary.get_keyword_documentation(self, name)
             return doc.replace('SeleniumLibrary', 'Selenium2Library')
-        intro = SeleniumLibrary.__doc__
+        intro = inspect.getdoc(SeleniumLibrary)
         intro = intro.replace('SeleniumLibrary', 'Selenium2Library')
         return """
 ---
